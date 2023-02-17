@@ -1,9 +1,11 @@
+package com.assignment1.songlib;
+
 public class Song {                 //song object
     String name,artist,album,year;  //song, artist, and album names as well as year
     
-    //year is a String because it becomes easier to work with; inputs will be strings so no need to convert
-    //plus, if there is no year it is easier to type "..." instead of some random int to denote that there is
-    //no year
+    //Year is a String because it becomes easier to work with; inputs will be strings so no need to convert.
+    //Plus, if there is no year it is easier to type "..." instead of some random int to denote that there
+    //is no year
 
     //set it up so if they leave album or year boxes blank it somehow returns null
     public Song(String name, String artist, String album, String year){
