@@ -1,3 +1,5 @@
+package com.assignment1.songlib;
+
 public class Song {                 //song object
     String name,artist,album,year;  //song, artist, and album names as well as year
     

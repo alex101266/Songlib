@@ -3,7 +3,7 @@ package com.assignment1.songlib;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class SongController {
     @FXML
     private Label welcomeText;
 
