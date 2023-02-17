@@ -11,8 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment1.songlib.SongController">
    <top>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="29.0" prefWidth="441.0" BorderPane.alignment="CENTER">
          <children>
@@ -35,16 +34,16 @@
          <children>
             <Pane prefHeight="310.0" prefWidth="188.0">
                <children>
-                  <Button layoutX="13.0" layoutY="271.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Add Song" />
-                  <TextField layoutX="13.0" layoutY="31.0" prefHeight="17.0" prefWidth="150.0" promptText="Song Name" />
-                  <TextField layoutX="13.0" layoutY="68.0" prefHeight="17.0" prefWidth="150.0" promptText="Artist" />
-                  <TextField layoutX="13.0" layoutY="103.0" prefHeight="17.0" prefWidth="150.0" promptText="Album" />
-                  <Label layoutX="15.0" layoutY="6.0" prefHeight="17.0" prefWidth="177.0" textFill="RED">
+                  <Button fx:id="AddBtn" layoutX="13.0" layoutY="271.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#addSong" prefHeight="27.0" prefWidth="161.0" text="Add Song" />
+                  <TextField fx:id="SongNameField" layoutX="13.0" layoutY="31.0" prefHeight="17.0" prefWidth="150.0" promptText="Song Name" />
+                  <TextField fx:id="ArtistField" layoutX="13.0" layoutY="68.0" prefHeight="17.0" prefWidth="150.0" promptText="Artist" />
+                  <TextField fx:id="AlbumField" layoutX="13.0" layoutY="103.0" prefHeight="17.0" prefWidth="150.0" promptText="Album" />
+                  <Label fx:id="ErrorMsg" layoutX="15.0" layoutY="6.0" prefHeight="17.0" prefWidth="177.0" textFill="RED">
                      <font>
                         <Font size="12.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="13.0" layoutY="142.0" prefHeight="17.0" prefWidth="150.0" promptText="Year" />
+                  <TextField fx:id="YearField" layoutX="13.0" layoutY="142.0" prefHeight="17.0" prefWidth="150.0" promptText="Year" />
                   <Label layoutX="13.0" layoutY="180.0" prefHeight="17.0" prefWidth="124.0" text="* Required" />
                   <Label layoutX="168.0" layoutY="36.0" text="*" />
                   <Label layoutX="168.0" layoutY="72.0" text="*" />
@@ -56,16 +55,16 @@
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="153.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <ListView layoutX="-4.0" prefHeight="262.0" prefWidth="161.0" />
-            <Button layoutX="-4.0" layoutY="271.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Delete Song" />
+            <ListView fx:id="SongList" layoutX="-4.0" prefHeight="262.0" prefWidth="161.0" />
+            <Button fx:id="DeleteBtn" layoutX="-4.0" layoutY="271.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteSong" prefHeight="27.0" prefWidth="161.0" text="Delete Song" />
          </children>
       </AnchorPane>
    </center>
    <right>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="183.0" BorderPane.alignment="TOP_LEFT">
          <children>
-            <TextArea layoutX="13.0" prefHeight="262.0" prefWidth="161.0" />
-            <Button layoutX="13.0" layoutY="271.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Edit Details" />
+            <TextArea fx:id="SongDetails" layoutX="13.0" prefHeight="262.0" prefWidth="161.0" />
+            <Button fx:id="EditBtn" layoutX="13.0" layoutY="271.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editSongDetails" prefHeight="27.0" prefWidth="161.0" text="Edit Details" />
          </children>
       </AnchorPane>
    </right>
