@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Built UI for Song Library&#10;Changed Names of application and Controller">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" afterDir="false" />
+    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/CSV.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/CSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLibraryApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/temp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/alexm/OneDrive/Desktop/CS213/Songlib",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alexm/OneDrive/Desktop/CS213/Songlib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/app" />
@@ -86,12 +82,20 @@
       <option name="project" value="LOCAL" />
       <updated>1676597699586</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs.">
+      <created>1676695914436</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676695914436</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Built UI for Song Library&#10;Changed Names of application and Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Built UI for Song Library&#10;Changed Names of application and Controller" />
+    <MESSAGE value="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

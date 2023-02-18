@@ -48,4 +48,12 @@ public class Song {                 //song object
     public void setAlbum(String album){
         this.album = album;   }
     public void setYear(String year){
-        this.year = year;   }   }
+        this.year = year;   }
+
+    @Override
+    public String toString()
+    {
+        return name + "," + artist + "," + album + "," + year;
+    }
+}
+

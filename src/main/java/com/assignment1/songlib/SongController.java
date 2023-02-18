@@ -9,13 +9,17 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Optional;
 
 public class SongController {
 
@@ -90,6 +94,60 @@ public class SongController {
     @FXML
     void addSong(ActionEvent event) {
 
+        String name = SongNameField.getText();
+        String artist = ArtistField.getText();
+        String album = AlbumField.getText();
+        String year = YearField.getText();
+
+        if(name.isEmpty() || artist.isEmpty()){
+            ErrorMsg.setText("Error: Name and Arist Required");
+            return;
+        }
+
+        for(Song song: Songs){
+            if(name.equals(song.name) && artist.equals(song.artist)){
+                ErrorMsg.setText("Error: No duplicate songs");
+                return;
+            }
+        }
+
+        // Create a new alert dialog
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+
+        // Set the dialog title and message
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Are you sure you want to add this song?");
+        alert.setContentText("Click OK to confirm or Cancel to abort.");
+
+        // Show the dialog and wait for the user's response
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // Check the user's response
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User clicked OK, add the item
+            obsSongList.add(name);
+            Song newSong = new Song(name, artist, album, year);
+            Songs.add(newSong);
+
+            Collections.sort(obsSongList);
+            Collections.sort(Songs, Song.TITLE_COMPARATOR);
+
+            SongListView.setItems(obsSongList);
+
+            try {
+                BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/java/com/assignment1/songlib/data.csv", true));
+                bw.write(newSong.toString());
+                bw.newLine();
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // User clicked Cancel or closed the dialog, do nothing
+            ErrorMsg.setText(" ");
+            return;
+        }
+        ErrorMsg.setText(" ");
     }
 
     @FXML
