@@ -1,25 +1,37 @@
 package com.assignment1.songlib;
-
+import
 public class Song {                 //song object
-    String name,artist,album,year;  //song, artist, and album names as well as year
+    private String name;
+    private String artist;
+    private String album;
+    private String year;  //song, artist, and album names as well as year
     
     //Year is a String because it becomes easier to work with; inputs will be strings so no need to convert.
     //Plus, if there is no year it is easier to type "..." instead of some random int to denote that there
     //is no year
 
     //set it up so if they leave album or year boxes blank it somehow returns null
+    /*public Song(){
+        this.name = "name";
+        this.artist = "artist";
+        this.album = "album";
+        this.year = "year";
+    }*/
     public Song(String name, String artist, String album, String year){
         this.name = name;
         this.artist = artist;
+        this.album = album;
+        this.year = year;
+        return;
         //next two check if there was an album or year input, which are optional
-        if(album == null){
+        /*if(album == null){
             this.album = " ";   }
         else{
             this.album=album;   }
         if(year == null){
             this.year = " ";    }
         else{
-                this.year=year; }   }
+        this.year=year; }*/   }
 
     //getter methods
     public String getName(){
@@ -39,4 +51,9 @@ public class Song {                 //song object
     public void setAlbum(String album){
         this.album = album;   }
     public void setYear(String year){
-        this.year = year;   }   }
+        this.year = year;   }
+
+    public String toString(){
+        return(this.name+","+this.artist+","+this.album+","+this.year);
+    }
+}
