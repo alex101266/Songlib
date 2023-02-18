@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="update 2/16/2023" />
+    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Built UI for Song Library&#10;Changed Names of application and Controller">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/CSV.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/CSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLibraryApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/temp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,24 +41,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alexm/OneDrive/Desktop/CS213/Songlib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/alexm/OneDrive/Desktop/CS213/Songlib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/app" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.assignment1.songlib" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
+    <configuration name="SongLib" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.assignment1.songlib.SongLib" />
+      <module name="Songlib" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path $PATH_TO_FX$/lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,33 +79,34 @@
       <option name="presentableId" value="Default" />
       <updated>1676403475249</updated>
     </task>
-    <task id="LOCAL-00001" summary="Adding song object file">
-      <created>1676404612843</created>
+    <task id="LOCAL-00001" summary="Built UI for Song Library&#10;Changed Names of application and Controller">
+      <created>1676597699586</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1676404612843</updated>
+      <updated>1676597699586</updated>
     </task>
-    <task id="LOCAL-00002" summary="Adding song object file">
-      <created>1676603301550</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1676603301550</updated>
-    </task>
-    <task id="LOCAL-00003" summary="update 2/16/2023">
-      <created>1676603324931</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676603324931</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding song object file" />
-    <MESSAGE value="update 2/16/2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 2/16/2023" />
+    <MESSAGE value="Built UI for Song Library&#10;Changed Names of application and Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Built UI for Song Library&#10;Changed Names of application and Controller" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="javafx.scene.control.ListView" memberName="items" />
+        <PinnedItemInfo parentTag="com.assignment1.songlib.SongController" memberName="Songs" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

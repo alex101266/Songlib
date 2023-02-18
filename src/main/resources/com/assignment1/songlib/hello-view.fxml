@@ -55,7 +55,7 @@
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="153.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <ListView fx:id="SongList" layoutX="-4.0" prefHeight="262.0" prefWidth="161.0" />
+            <ListView fx:id="SongListView" layoutX="-4.0" prefHeight="262.0" prefWidth="161.0" />
             <Button fx:id="DeleteBtn" layoutX="-4.0" layoutY="271.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteSong" prefHeight="27.0" prefWidth="161.0" text="Delete Song" />
          </children>
       </AnchorPane>

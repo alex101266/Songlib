@@ -1,5 +1,7 @@
 package com.assignment1.songlib;
 
+import java.util.Comparator;
+
 public class Song {                 //song object
     String name,artist,album,year;  //song, artist, and album names as well as year
     
@@ -8,6 +10,13 @@ public class Song {                 //song object
     //is no year
 
     //set it up so if they leave album or year boxes blank it somehow returns null
+
+    public static final Comparator<Song> TITLE_COMPARATOR = new Comparator<Song>() {
+        public int compare(Song s1, Song s2) {
+            return s1.getName().compareTo(s2.getName());
+        }
+    };
+
     public Song(String name, String artist, String album, String year){
         this.name = name;
         this.artist = artist;
