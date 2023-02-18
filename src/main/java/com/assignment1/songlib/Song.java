@@ -11,6 +11,7 @@ public class Song {                 //song object
 
     //set it up so if they leave album or year boxes blank it somehow returns null
 
+    //sorting for Song objects for the Song object list
     public static final Comparator<Song> TITLE_COMPARATOR = new Comparator<Song>() {
         public int compare(Song s1, Song s2) {
             return s1.getName().compareTo(s2.getName());
