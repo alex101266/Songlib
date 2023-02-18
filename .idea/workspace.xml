@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/CSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.class" beforeDir="false" />
+    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,13 +83,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676695914436</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added">
+      <created>1676700535730</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676700535730</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Built UI for Song Library&#10;Changed Names of application and Controller" />
     <MESSAGE value="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for displaying current song list.&#10;Pulls from a csv file that contains the current songs." />
+    <MESSAGE value="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
