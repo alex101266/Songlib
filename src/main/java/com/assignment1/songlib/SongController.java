@@ -152,7 +152,76 @@ public class SongController {
 
     @FXML
     void deleteSong(ActionEvent event) {
+        String name = SongNameField.getText();
+        String artist = ArtistField.getText();
+        String album = AlbumField.getText();
+        String year = YearField.getText();
+        String fullSong;
 
+        for(Song song: Songs){
+            if(name.equals(song.name) && artist.equals(song.artist)){
+                int i = Songs.indexOf();
+                Song songToDelete = Songs.get(i);
+                fullSong = songToDelete.toString();
+                // Create new alert dialog
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+
+                // Set dialog title and message
+                alert.setTitle("Confirmation Dialog");
+                alert.setHeaderText("Are you sure you want to delete this song?");
+                alert.setContentText("Click OK to confirm or Cancel to abort.");
+
+                // Wait for confirmation from user
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    // User clicked Ok so delete the song
+                    obsSongList.remove(name);
+                    Songs.remove(i);
+
+                    Collections.sort(obsSongList);
+                    Collections.sort(Songs, Song.TITLE_COMPARATOR);
+
+                    SongListView.setItems(obsSongList);
+
+                    try {
+                        File inputFile = new File("src/main/java/com/assignment1/songlib/data.csv");
+                        File tempFile = new File("temp.csv");
+                        BufferedWriter br = new BufferedWriter(new FileWriter(inputFile));
+                        BufferedWriter bw = new BufferedWriter(new FileWriter(tempFile));
+
+                        String currentLine;
+                        while((currentLine = reader.readLine()) != null) {
+                            // Reads all lines except when currentLine has desired String to delete
+                            // It skips that line and doesn't copy it over
+                            if (currentLine.contains(fullSong)) {
+                                continue;
+                            }
+                            bw.write(currentLine + System.getProperty("line.separator"));
+                        }
+                        br.close();
+                        bw.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // User clicked Cancel or closed the dialog, do nothing
+                    ErrorMsg.setText(" ");
+                    return;
+                }
+                ErrorMsg.setText(" ");
+            }
+            else{
+                // Creates alert dialog if
+                Alert alert = new Alert(AlertType.ERROR);
+
+                // Set the alert title and message
+                alert.settitle("Error:");
+                alert.setHeaderText("Cannot delete this song.");
+                alert.setContentText("The song either does not exist or one of the entered items is spelled incorrectly.")
+
+            }
+        }
     }
 
     @FXML
