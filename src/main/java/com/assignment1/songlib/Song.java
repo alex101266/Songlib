@@ -3,7 +3,7 @@ package com.assignment1.songlib;
 import java.util.Comparator;
 
 public class Song {                 //song object
-    String name,artist,album,year;  //song, artist, and album names as well as year
+    private String name,artist,album,year;  //song, artist, and album names as well as year
     
     //Year is a String because it becomes easier to work with; inputs will be strings so no need to convert.
     //Plus, if there is no year it is easier to type "..." instead of some random int to denote that there
@@ -14,7 +14,7 @@ public class Song {                 //song object
     //sorting for Song objects for the Song object list
     public static final Comparator<Song> TITLE_COMPARATOR = new Comparator<Song>() {
         public int compare(Song s1, Song s2) {
-            return s1.getName().compareTo(s2.getName());
+            return s1.getName().toLowerCase().compareTo(s2.getName().toLowerCase());
         }
     };
 
