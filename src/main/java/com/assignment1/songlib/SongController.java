@@ -97,6 +97,15 @@ public class SongController {
         }
 
         SongListView.setItems(obsSongList);
+
+        if(Songs.size() != 0){
+            SongListView.getSelectionModel().select(0);
+            SongDetails.setText("Song Name: " + Songs.get(0).getName() + "\n"
+                    + "Artist: " + Songs.get(0).getArtist() + "\n"
+                    + "Album: " + Songs.get(0).getAlbum() + "\n"
+                    + "Year: " + Songs.get(0).getYear());
+        }
+
     }
 
     @FXML
