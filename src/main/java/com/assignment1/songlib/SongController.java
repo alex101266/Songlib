@@ -70,7 +70,7 @@ public class SongController {
             String line;
             Song song;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+                String[] values = line.split("\\|");
                 String songName = values[0];
                 String artist = values[1];
                 String album = "";
@@ -108,6 +108,14 @@ public class SongController {
 
     }
 
+    public static boolean isNumeric(String str) {
+        try {
+            int d = Integer.parseInt(str);
+            return d > 0;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
     @FXML
     void addSong(ActionEvent event) {
 
@@ -120,6 +128,24 @@ public class SongController {
             ErrorMsg.setText("Error: Name and Arist Required");
             return;
         }
+
+        if(name.contains("|") || artist.contains("|") || album.contains("|") || year.contains("|")){
+            ErrorMsg.setText("| is an illegal character");
+            return;
+        }
+
+        if(!year.isEmpty()) {
+            if (!isNumeric(year)) {
+                ErrorMsg.setText("Year must be positive number");
+                return;
+            }
+            if(year.length() >4 || Integer.parseInt(year) < 0){
+                ErrorMsg.setText("Year must be between 0 & 2023");
+                return;
+            }
+        }
+
+
 
         for(Song song: Songs){
             if(name.equals(song.getName()) && artist.equals(song.getArtist())){
@@ -180,7 +206,7 @@ public class SongController {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+                String[] values = line.split("\\|");
                 String songName = values[0];
                 String artist = values[1];
                 String album = "";
@@ -202,7 +228,7 @@ public class SongController {
         }
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
             for (Song song : songs) {
-                bw.write(song.getName() + "," + song.getArtist() + "," + song.getAlbum() + "\n");
+                bw.write(song.getName() + "|" + song.getArtist() + "|" + song.getAlbum() + "|" + song.getYear() + "\n");
             }
         }
     }

@@ -54,7 +54,7 @@ public class Song {                 //song object
     @Override
     public String toString()
     {
-        return name + "," + artist + "," + album + "," + year;
+        return name + "|" + artist + "|" + album + "|" + year;
     }
 }
 
