@@ -125,7 +125,7 @@ public class SongController {
         String year = YearField.getText();
 
         if(name.trim().isEmpty() || artist.trim().isEmpty()){
-            ErrorMsg.setText("Error: Name and Arist Required");
+            ErrorMsg.setText("Error: Name and Artist Required");
             return;
         }
 
@@ -145,15 +145,12 @@ public class SongController {
             }
         }
 
-
-
         for(Song song: Songs){
-            if(name.equalsIgnoreCase(song.getName()) && artist.equalsIgnoreCase(song.getArtist())){
+            if(name.trim().equalsIgnoreCase(song.getName()) && artist.trim().equalsIgnoreCase(song.getArtist())){
                 ErrorMsg.setText("Error: No duplicate songs");
                 return;
             }
         }
-
         // Create a new alert dialog
         Alert alert = new Alert(AlertType.CONFIRMATION);
 
@@ -168,8 +165,8 @@ public class SongController {
         // Check the user's response
         if (result.isPresent() && result.get() == ButtonType.OK) {
             // User clicked OK, add the item
-            obsSongList.add(name);
-            Song newSong = new Song(name, artist, album, year);
+            obsSongList.add(name.trim());
+            Song newSong = new Song(name.trim(), artist.trim(), album, year);
             Songs.add(newSong);
 
             Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
@@ -177,10 +174,10 @@ public class SongController {
 
             SongListView.setItems(obsSongList);
 
-            SongDetails.setText("Song Name: " + name + "\n"
-                    + "Artist: " + artist + "\n"
-                    + "Album: " + album + "\n"
-                    + "Year: " + year);
+            SongDetails.setText("Song Name: " + name.trim() + "\n"
+                    + "Artist: " + artist.trim() + "\n"
+                    + "Album: " + album.trim() + "\n"
+                    + "Year: " + year.trim());
 
             int addedSongIndex = Songs.indexOf(newSong);
             SongListView.getSelectionModel().select(addedSongIndex);
@@ -267,17 +264,17 @@ public class SongController {
 
             else if(selectedIndex > Songs.size()-1){
                 selectedIndex-=1;
-                SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
-                        + "Artist: " + Songs.get(selectedIndex).getArtist() + "\n"
-                        + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
-                        + "Year: " + Songs.get(selectedIndex).getYear());
+                SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName().trim() + "\n"
+                        + "Artist: " + Songs.get(selectedIndex).getArtist().trim() + "\n"
+                        + "Album: " + Songs.get(selectedIndex).getAlbum().trim() + "\n"
+                        + "Year: " + Songs.get(selectedIndex).getYear().trim());
                 SongListView.getSelectionModel().select(selectedIndex);
             }
             else{
-                SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
-                        + "Artist: " + Songs.get(selectedIndex).getArtist() + "\n"
-                        + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
-                        + "Year: " + Songs.get(selectedIndex).getYear());
+                SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName().trim() + "\n"
+                        + "Artist: " + Songs.get(selectedIndex).getArtist().trim() + "\n"
+                        + "Album: " + Songs.get(selectedIndex).getAlbum().trim() + "\n"
+                        + "Year: " + Songs.get(selectedIndex).getYear().trim());
                 SongListView.getSelectionModel().select(selectedIndex);
             }
 
@@ -292,77 +289,82 @@ public class SongController {
 
     @FXML
     void editSongDetails(ActionEvent event) throws IOException{
+        if(selectedSong==null){
+            ErrorMsg.setText("Click on a song from the list.");
+            return;
+        }
         String name = selectedSong.getName();
         String artist = selectedSong.getArtist();
         String album = selectedSong.getAlbum();
         String year = selectedSong.getYear();
 
-        Song oldSong = Songs.get(selectedIndex);
+        Song oldSong = selectedSong;
+        deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
 
         String newName = SongNameField.getText();
         String newArtist = ArtistField.getText();
         String newAlbum = AlbumField.getText();
         String newYear = YearField.getText();
 
+        //Checking that there is a song name or artist
+        if((newName.trim().isEmpty())||(newArtist.trim().isEmpty())){
+            ErrorMsg.setText("Error: Song is blank.");
+            return;
+        }
+        //Checking that year is valid
+        if(!newYear.isEmpty()){
+            if (!isNumeric(newYear)) {
+                ErrorMsg.setText("Year must be positive number");
+                return; }
+            if(newYear.length() >4 || Integer.parseInt(newYear) < 0){
+                ErrorMsg.setText("Year must be between 0 & 2023");
+                return; }
+        }
+        //Sends confirmation popup
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
         alert.setHeaderText("Are you sure you want to edit this song?");
         alert.setContentText("Click OK to confirm or Cancel to abort.");
-
         Optional<ButtonType> result = alert.showAndWait();
+
         //User pressed Ok, continue with editing
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            if((newName.trim().isEmpty())||(newArtist.trim().isEmpty())){
-                ErrorMsg.setText("Error: Cannot be blank.");
-                return;
-            }
             //Removes song to edit to make sure there are no duplicates in rest of list
             int index = selectedIndex;  //Doesn't forget index
             //Song oldSong = Songs.get(selectedIndex);
             obsSongList.remove(name);
-            Song songToEdit = Songs.get(index);
+            Song songToEdit = oldSong;
             Songs.remove(index);
             //Checks entire list to make sure there is no duplicate
             for(Song song: Songs){
                 //Searches for duplicate song without current song interfering
-                if(newName.equalsIgnoreCase(song.getName()) && newArtist.equalsIgnoreCase(song.getArtist())){
+                if(newName.equalsIgnoreCase(song.getName().trim()) && newArtist.equalsIgnoreCase(song.getArtist().trim())){
                     ErrorMsg.setText("Error: Song already exists.");
                     return;
-                }
-            }
-            //Puts the song back into list
-            Songs.add(songToEdit);
-            //Sorts list back to normal and proceeds with editing
-            //Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
-            Collections.sort(Songs, Song.TITLE_COMPARATOR); //selectedIndex should be same again
-
+                }   }
             //Edits all fields
-            Songs.get(selectedIndex).setName(newName);
-            obsSongList.add(newName);
-            Songs.get(selectedIndex).setArtist(newArtist);
+            songToEdit.setName(newName);
+            obsSongList.add(newName.trim());
+            songToEdit.setArtist(newArtist);
             if(AlbumField.getText().isEmpty()){
-                Songs.get(selectedIndex).setAlbum(" "); }
+                songToEdit.setAlbum(" "); }
             else{
-                Songs.get(selectedIndex).setAlbum(newAlbum);  }
+                songToEdit.setAlbum(newAlbum);  }
             if(YearField.getText().isEmpty()){
-                Songs.get(selectedIndex).setYear(" "); }
+                songToEdit.setYear(" "); }
             else{
-                Songs.get(selectedIndex).setYear(newYear);    }
+                songToEdit.setYear(newYear);    }
 
-            //Sorts new lists (so if name changed it can re-alphabetize)
+            //Adds back the edited song
+            Songs.add(songToEdit);
+
+            //Sorts new lists
             Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
             Collections.sort(Songs, Song.TITLE_COMPARATOR);
 
             SongListView.setItems(obsSongList);
 
-            SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
-                    + "Artist: " + Songs.get(selectedIndex).getArtist() + "\n"
-                    + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
-                    + "Year: " + Songs.get(selectedIndex).getYear());
-            SongListView.getSelectionModel().select(selectedIndex);
-
             //Deletes old song and appends new one
-            deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
             Song newSong = Songs.get(selectedIndex);
             try{
                 BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/java/com/assignment1/songlib/data.csv", true));
@@ -371,8 +373,7 @@ public class SongController {
                 bw.close();
             } catch (IOException e){
                 e.printStackTrace();
-            }
-        }
+            }   }
         else{
             ErrorMsg.setText(" ");
             return; }
@@ -380,6 +381,10 @@ public class SongController {
     }
     @FXML
     void onListViewSongClicked(MouseEvent event) {
+        /*if(event.getTarget()==null){
+            ErrorMsg.setText("Click on a song from the list.");
+            return;
+        }*/
         selectedIndex = SongListView.getSelectionModel().getSelectedIndex();
         selectedSong = Songs.get(selectedIndex);
 

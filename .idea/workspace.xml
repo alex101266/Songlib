@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Some bug fixes" />
+    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676873197213</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**">
+      <created>1676944948399</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676944948399</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +132,8 @@
     <MESSAGE value="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added" />
     <MESSAGE value="Fixed Delete Song method to work based on selected song&#10;from list view&#10;Properly deletes from CSV file" />
     <MESSAGE value="Some bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some bug fixes" />
+    <MESSAGE value="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -130,16 +142,6 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
