@@ -116,13 +116,13 @@ public class SongController {
         String album = AlbumField.getText();
         String year = YearField.getText();
 
-        if(name.isEmpty() || artist.isEmpty()){
+        if(name.trim().isEmpty() || artist.trim().isEmpty()){
             ErrorMsg.setText("Error: Name and Arist Required");
             return;
         }
 
         for(Song song: Songs){
-            if(name.equals(song.getName()) && artist.equals(song.getArtist())){
+            if(name.equalsIgnoreCase(song.getName()) && artist.equalsIgnoreCase(song.getArtist())){
                 ErrorMsg.setText("Error: No duplicate songs");
                 return;
             }
@@ -265,8 +265,92 @@ public class SongController {
     }
 
     @FXML
-    void editSongDetails(ActionEvent event) {
+    void editSongDetails(ActionEvent event) throws IOException{
+        String name = selectedSong.getName();
+        String artist = selectedSong.getArtist();
+        String album = selectedSong.getAlbum();
+        String year = selectedSong.getYear();
 
+        Song oldSong = Songs.get(selectedIndex);
+
+        String newName = SongNameField.getText();
+        String newArtist = ArtistField.getText();
+        String newAlbum = AlbumField.getText();
+        String newYear = YearField.getText();
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Are you sure you want to edit this song?");
+        alert.setContentText("Click OK to confirm or Cancel to abort.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        //User pressed Ok, continue with editing
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            if((newName.trim().isEmpty())||(newArtist.trim().isEmpty())){
+                ErrorMsg.setText("Error: Cannot be blank.");
+                return;
+            }
+            //Removes song to edit to make sure there are no duplicates in rest of list
+            int index = selectedIndex;  //Doesn't forget index
+            //Song oldSong = Songs.get(selectedIndex);
+            obsSongList.remove(name);
+            Song songToEdit = Songs.get(index);
+            Songs.remove(index);
+            //Checks entire list to make sure there is no duplicate
+            for(Song song: Songs){
+                //Searches for duplicate song without current song interfering
+                if(newName.equalsIgnoreCase(song.getName()) && newArtist.equalsIgnoreCase(song.getArtist())){
+                    ErrorMsg.setText("Error: Song already exists.");
+                    return;
+                }
+            }
+            //Puts the song back into list
+            Songs.add(songToEdit);
+            //Sorts list back to normal and proceeds with editing
+            //Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
+            Collections.sort(Songs, Song.TITLE_COMPARATOR); //selectedIndex should be same again
+
+            //Edits all fields
+            Songs.get(selectedIndex).setName(newName);
+            obsSongList.add(newName);
+            Songs.get(selectedIndex).setArtist(newArtist);
+            if(AlbumField.getText().isEmpty()){
+                Songs.get(selectedIndex).setAlbum(" "); }
+            else{
+                Songs.get(selectedIndex).setAlbum(newAlbum);  }
+            if(YearField.getText().isEmpty()){
+                Songs.get(selectedIndex).setYear(" "); }
+            else{
+                Songs.get(selectedIndex).setYear(newYear);    }
+
+            //Sorts new lists (so if name changed it can re-alphabetize)
+            Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
+            Collections.sort(Songs, Song.TITLE_COMPARATOR);
+
+            SongListView.setItems(obsSongList);
+
+            SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
+                    + "Artist: " + Songs.get(selectedIndex).getArtist() + "\n"
+                    + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
+                    + "Year: " + Songs.get(selectedIndex).getYear());
+            SongListView.getSelectionModel().select(selectedIndex);
+
+            //Deletes old song and appends new one
+            deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
+            Song newSong = Songs.get(selectedIndex);
+            try{
+                BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/java/com/assignment1/songlib/data.csv", true));
+                bw.write(newSong.toString());
+                bw.newLine();
+                bw.close();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            ErrorMsg.setText(" ");
+            return; }
+        ErrorMsg.setText(" ");
     }
     @FXML
     void onListViewSongClicked(MouseEvent event) {
@@ -283,7 +367,4 @@ public class SongController {
                             + "Album: " + Album + "\n"
                             + "Year: " + Year);
     }
-
-
-
 }

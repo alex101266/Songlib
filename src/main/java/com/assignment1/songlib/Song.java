@@ -43,13 +43,23 @@ public class Song {                 //song object
 
     //setter methods (for editing)
     public void setName(String name){
-        this.name = name;   }
+        String tempName = name.trim();
+        this.name = tempName;   }
     public void setArtist(String artist){
-        this.artist = artist;   }
+        String tempArtist = artist.trim();
+        this.artist = tempArtist;   }
     public void setAlbum(String album){
-        this.album = album;   }
+        String tempAlbum = album.trim();
+        if(tempAlbum.length() == 0){
+            this.album = " ";   }
+        else{
+            this.album = tempAlbum; }   }
     public void setYear(String year){
-        this.year = year;   }
+        String tempYear = year.trim();
+        if(tempYear.length() == 0){
+            this.year = " ";   }
+        else{
+            this.year = tempYear; }   }
 
     @Override
     public String toString()
