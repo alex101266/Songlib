@@ -139,7 +139,8 @@ public class SongController {
                 ErrorMsg.setText("Year must be positive number");
                 return;
             }
-            if(year.length() >4 || Integer.parseInt(year) < 0){
+
+            if(Integer.parseInt(year) > 2023 || Integer.parseInt(year) < 0){
                 ErrorMsg.setText("Year must be between 0 & 2023");
                 return;
             }
@@ -316,7 +317,7 @@ public class SongController {
             if (!isNumeric(newYear)) {
                 ErrorMsg.setText("Year must be positive number");
                 return; }
-            if(newYear.length() >4 || Integer.parseInt(newYear) < 0){
+            if(Integer.parseInt(newYear) > 2023 || Integer.parseInt(newYear) < 0){
                 ErrorMsg.setText("Year must be between 0 & 2023");
                 return; }
         }
