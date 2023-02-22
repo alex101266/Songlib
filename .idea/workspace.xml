@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
-    </list>
+    <list default="true" id="21e8598a-d6d1-4a77-acc3-3283b05136d3" name="Changes" comment="Fixed bugs and finalized UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,26 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1676873197213</updated>
     </task>
-    <task id="LOCAL-00006" summary="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**">
-      <created>1676944948399</created>
+    <task id="LOCAL-00006" summary="Fixed bugs and finalized UI">
+      <created>1677036074731</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1676944948399</updated>
+      <updated>1677036074731</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Built UI for Song Library&#10;Changed Names of application and Controller" />
@@ -132,8 +117,8 @@
     <MESSAGE value="Added functionality for adding songs to song list.&#10;No duplicates allowed, name and artist requirement shown&#10;Pop up confirmation window added" />
     <MESSAGE value="Fixed Delete Song method to work based on selected song&#10;from list view&#10;Properly deletes from CSV file" />
     <MESSAGE value="Some bug fixes" />
-    <MESSAGE value="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed addSong method and Song file to allow both to delete leading/trailing spaces.&#10;Implemented editSongDetails method.&#10;**Editing a song doesn't delete the old song, even though that song was called to be deleted by deleteSongFromCSV.**" />
+    <MESSAGE value="Fixed bugs and finalized UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs and finalized UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -142,6 +127,21 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
+          <line>379</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
+          <line>306</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -150,5 +150,8 @@
         <PinnedItemInfo parentTag="com.assignment1.songlib.SongController" memberName="Songs" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Songlib$SongLib.ic" NAME="SongLib Coverage Results" MODIFIED="1677034761861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
