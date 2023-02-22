@@ -119,10 +119,10 @@ public class SongController {
     @FXML
     void addSong(ActionEvent event) {
 
-        String name = SongNameField.getText();
-        String artist = ArtistField.getText();
-        String album = AlbumField.getText();
-        String year = YearField.getText();
+        String name = SongNameField.getText().trim();
+        String artist = ArtistField.getText().trim();
+        String album = AlbumField.getText().trim();
+        String year = YearField.getText().trim();
 
         if(name.trim().isEmpty() || artist.trim().isEmpty()){
             ErrorMsg.setText("Error: Name and Artist Required");
@@ -301,10 +301,10 @@ public class SongController {
         Song oldSong = selectedSong;
         deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
 
-        String newName = SongNameField.getText();
-        String newArtist = ArtistField.getText();
-        String newAlbum = AlbumField.getText();
-        String newYear = YearField.getText();
+        String newName = SongNameField.getText().trim();
+        String newArtist = ArtistField.getText().trim();
+        String newAlbum = AlbumField.getText().trim();
+        String newYear = YearField.getText().trim();
 
         //Checking that there is a song name or artist
         if((newName.trim().isEmpty())||(newArtist.trim().isEmpty())){
