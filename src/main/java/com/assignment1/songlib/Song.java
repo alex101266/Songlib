@@ -1,3 +1,4 @@
+//Authors: Timur Akhtemov, Alex Modzelewski
 package com.assignment1.songlib;
 
 import java.util.Comparator;
