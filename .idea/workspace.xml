@@ -8,7 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongLib.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/assignment1/songlib/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/assignment1/songlib/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,13 +128,18 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="10" />
+          <line>379</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/assignment1/songlib/SongController.java</url>
+          <line>306</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -142,5 +149,8 @@
         <PinnedItemInfo parentTag="com.assignment1.songlib.SongController" memberName="Songs" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Songlib$SongLib.ic" NAME="SongLib Coverage Results" MODIFIED="1677034761861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

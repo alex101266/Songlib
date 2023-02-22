@@ -1,4 +1,6 @@
+//Authors: Timur Akhtemov, Alex Modzelewski
 package com.assignment1.songlib;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

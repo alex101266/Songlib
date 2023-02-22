@@ -1,3 +1,4 @@
+//Authors: Timur Akhtemov, Alex Modzelewski
 package com.assignment1.songlib;
 
 import javafx.collections.FXCollections;
@@ -104,6 +105,7 @@ public class SongController {
                     + "Artist: " + Songs.get(0).getArtist() + "\n"
                     + "Album: " + Songs.get(0).getAlbum() + "\n"
                     + "Year: " + Songs.get(0).getYear());
+            selectedSong = Songs.get(0);
         }
 
     }
@@ -182,8 +184,11 @@ public class SongController {
                     + "Album: " + album + "\n"
                     + "Year: " + year);
 
+
             int addedSongIndex = Songs.indexOf(newSong);
             SongListView.getSelectionModel().select(addedSongIndex);
+            selectedIndex = addedSongIndex;
+            selectedSong = Songs.get(addedSongIndex);
 
             try {
                 BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/java/com/assignment1/songlib/data.csv", true));
@@ -272,6 +277,7 @@ public class SongController {
                         + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
                         + "Year: " + Songs.get(selectedIndex).getYear());
                 SongListView.getSelectionModel().select(selectedIndex);
+                selectedSong = Songs.get(selectedIndex);
             }
             else{
                 SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
@@ -279,6 +285,7 @@ public class SongController {
                         + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
                         + "Year: " + Songs.get(selectedIndex).getYear());
                 SongListView.getSelectionModel().select(selectedIndex);
+                selectedSong = Songs.get(selectedIndex);
             }
 
             deleteSongFromCSV(songToDelete, "src/main/java/com/assignment1/songlib/data.csv");
@@ -292,12 +299,17 @@ public class SongController {
 
     @FXML
     void editSongDetails(ActionEvent event) throws IOException{
+        if(selectedSong == null){
+            ErrorMsg.setText("Error: Please add or select a song");
+            return;
+        }
+
         String name = selectedSong.getName();
         String artist = selectedSong.getArtist();
         String album = selectedSong.getAlbum();
         String year = selectedSong.getYear();
 
-        Song oldSong = Songs.get(selectedIndex);
+        //Song oldSong = Songs.get(selectedIndex);
 
         String newName = SongNameField.getText();
         String newArtist = ArtistField.getText();
@@ -318,10 +330,10 @@ public class SongController {
             }
             //Removes song to edit to make sure there are no duplicates in rest of list
             int index = selectedIndex;  //Doesn't forget index
-            //Song oldSong = Songs.get(selectedIndex);
+            Song oldSong = Songs.get(index);
             obsSongList.remove(name);
             Song songToEdit = Songs.get(index);
-            Songs.remove(index);
+            Songs.remove(songToEdit);
             //Checks entire list to make sure there is no duplicate
             for(Song song: Songs){
                 //Searches for duplicate song without current song interfering
@@ -336,6 +348,7 @@ public class SongController {
             //Collections.sort(obsSongList, String.CASE_INSENSITIVE_ORDER);
             Collections.sort(Songs, Song.TITLE_COMPARATOR); //selectedIndex should be same again
 
+            deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
             //Edits all fields
             Songs.get(selectedIndex).setName(newName);
             obsSongList.add(newName);
@@ -355,14 +368,17 @@ public class SongController {
 
             SongListView.setItems(obsSongList);
 
+            selectedIndex = Songs.indexOf(songToEdit);
+
             SongDetails.setText("Song Name: " + Songs.get(selectedIndex).getName() + "\n"
                     + "Artist: " + Songs.get(selectedIndex).getArtist() + "\n"
                     + "Album: " + Songs.get(selectedIndex).getAlbum() + "\n"
                     + "Year: " + Songs.get(selectedIndex).getYear());
             SongListView.getSelectionModel().select(selectedIndex);
+            selectedSong = Songs.get(selectedIndex);
 
             //Deletes old song and appends new one
-            deleteSongFromCSV(oldSong, "src/main/java/com/assignment1/songlib/data.csv");
+
             Song newSong = Songs.get(selectedIndex);
             try{
                 BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/java/com/assignment1/songlib/data.csv", true));
